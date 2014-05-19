@@ -1,10 +1,17 @@
 class PlaylistsController < ApplicationController
+has_many :selections
+
+
+def current_edit_playlist(choice)
+    @playlist_editing = self.playlist_id
+end
+
 
 def create
     @playlist = Playlist.create(playlist_attributes)
     # redirect_to "/users/#{@playlist.user_id}"
     @display = @playlist.title
-    redirect_to "/"
+    redirect_to "/users/#{@playlist.user_id}"
 end
 
 

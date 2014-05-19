@@ -16,9 +16,9 @@ end
 def create
   @user = User.create(user_attributes)
     if @user.save
-    redirect_to "/users/#{@user.id}"
+    redirect_to "/users/#{@user.id}", :notice => "Signed up!"
   else
-    render "Form is invalid"
+    render "new"
   end
 end
 

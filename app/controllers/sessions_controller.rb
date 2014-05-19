@@ -4,8 +4,8 @@ def new
 end
 
 def create
-  user = User.find_by(email: params.fetch(:email))
-  # success = user.authenticate(params[:password])
+  user = User.authenticate(params[:email], params[:password_hash])
+  # user = User.find_by(email: params.fetch(:email))
   if user
     session[:user_id] = user.id
     redirect_to root_url, :notice => "Logged in!"

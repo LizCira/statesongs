@@ -1,6 +1,4 @@
 
-
-
 <p>Back to <%= link_to "All States", "/" %>
 
 <p> Hello, <%= @state.name %> </p>
@@ -9,8 +7,11 @@
 <p>Top Tracks About <%= @state.name %> </p>
 
 <p> <% @state.state_playlist.each do |tracks| %>
-  <li>"<%= tracks["track"]["track_name"] %>,"
-    <%= tracks["track"]["artist_name"] %>
+  <li>"<%= tracks["track"]["track_name"] %>, "
+    <% @name = tracks["track"]["track_name"] %>
+    <%= tracks["track"]["artist_name"] %>,
+    <% @band = tracks["track"]["artist_name"] %>
+    <%= link_to "Add to playlist", {:controller => "selections", :action => "create", :name => @name, :band => @band}, {:method => :post } %>
     <p> <iframe src="https://embed.spotify.com/?uri=spotify:track:<%= tracks["track"]["track_spotify_id"] %>"width="300" height="80" frameborder="0" allowtransparency="true"></iframe> </p>
 
   <% end %>

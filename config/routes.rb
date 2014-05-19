@@ -18,6 +18,10 @@ Rails.application.routes.draw do
 
   post '/playlists' => "playlists#create"
 
+
+  get "selections" => "selections#index"
+  post "/selections" => "selections#create"
+
 # adding login stuff without knowing why
 
 get "log_out" => "sessions#destroy", :as => "log_out"
