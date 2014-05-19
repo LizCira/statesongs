@@ -1,0 +1,22 @@
+
+
+
+<p>Back to <%= link_to "All States", "/" %>
+
+<p> Hello, <%= @state.name %> </p>
+
+
+<p>Top Tracks About <%= @state.name %> </p>
+
+<p> <% @state.state_playlist.each do |tracks| %>
+  <li>"<%= tracks["track"]["track_name"] %>,"
+    <%= tracks["track"]["artist_name"] %>
+    <p> <iframe src="https://embed.spotify.com/?uri=spotify:track:<%= tracks["track"]["track_spotify_id"] %>"width="300" height="80" frameborder="0" allowtransparency="true"></iframe> </p>
+
+  <% end %>
+<br>
+<% @state.insta_state %>
+  <%= image_tag @state.insta_state %>
+  <%= image_tag @state.insta_state %>
+ <%= image_tag @state.insta_state %>
+

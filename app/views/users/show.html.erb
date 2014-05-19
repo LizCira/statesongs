@@ -1,0 +1,21 @@
+<p> Hello, <%= @user.name %>! </p>
+
+<p>Create a new playlist to begin choosing songs:</p>
+
+<%= form_for Playlist.new do |f| %>
+  <p>Playlist Title: <%= f.text_field :title %></p>
+  <p>Notes: <%= f.text_field :user_notes %></p>
+ <%= f.hidden_field :user_id, :value => @user.id.to_i %>
+
+  <p><%= f.submit "New list!" %></p>
+
+  <% end %>
+
+
+<p>Or pick an existing playlist to edit or add to.</p>
+
+<ul>
+<% @user.playlists.each do |list| %>
+  <li><%= list.title %> -- <%= list.user_notes %></li>
+  <% end %>
+</ul>

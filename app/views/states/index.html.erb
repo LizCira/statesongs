@@ -1,0 +1,12 @@
+<h2>American Music Project</h2>
+
+<p>See songs about your favorite state!</p>
+
+<p>Create an account to build a playlist: <%= link_to "Sign up here", sign_up_path %></p>
+
+
+<ul>
+<% @states.each do |state| %>
+  <li><%= link_to state.name, "/states/#{state.id}" %></li>
+  <% end %>
+</ul>
