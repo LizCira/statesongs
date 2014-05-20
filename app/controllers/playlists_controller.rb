@@ -25,6 +25,12 @@ def create
 end
 
 
+def delete
+  Playlist.find(params[:list_id]).destroy
+  redirect_to "/users/#{params[:user_id]}"
+
+end
+
 private
   def playlist_attributes
     params.require(:playlist).permit(:title, :user_notes, :selection_id, :user_id, :id, :state_name)
