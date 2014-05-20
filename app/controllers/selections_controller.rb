@@ -28,6 +28,11 @@ def create
 end
 
 def delete
+  selection_attributes = params
+  user_id = selection_attributes["user_id"]
+  id = selection_attributes["id"]
+  Selection.find(id).destroy
+  redirect_to "/users/#{user_id}"
 end
 
 private
