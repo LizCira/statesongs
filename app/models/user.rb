@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :playlists
- has_secure_password
+ # has_secure_password
   # attr_accessible :email, :password_hash, :password_confirmation
 
   # attr_accessor :password_hash

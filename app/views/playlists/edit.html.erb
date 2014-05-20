@@ -23,3 +23,17 @@
 
   <% end %>
 
+<h2>What's going on in <%= @statename %> right now???</h2>
+
+<% query = @statename.gsub("%20","").to_s %>
+<% api_query = HTTParty.get("https://api.instagram.com/v1/tags/#{query}/media/recent?client_id=#{INSTAGRAM_CLIENT_ID}") %>
+ <% pic1 = api_query["data"].sample%>
+ <% pic2 = api_query["data"].sample%>
+ <% pic3 = api_query["data"].sample%>
+<% @pic1 = pic1["images"]["standard_resolution"]["url"] %>
+<% @pic2 = pic2["images"]["standard_resolution"]["url"] %>
+<% @pic3 = pic3["images"]["standard_resolution"]["url"] %>
+
+<%= image_tag @pic1 %>
+<%= image_tag @pic2 %>
+<%= image_tag @pic3 %>
