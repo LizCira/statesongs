@@ -1,9 +1,19 @@
 class PlaylistsController < ApplicationController
-has_many :selections
 
+# def current_edit_playlist(choice)
+#     @playlist_editing = self.playlist_id
+# end
 
-def current_edit_playlist(choice)
-    @playlist_editing = self.playlist_id
+# def show_states
+#   @states = State.all
+# end
+def show
+  @playlist = Playlist.find(params[:id])
+end
+
+def edit
+  @playlist = Playlist.find(params[:id])
+  @statename = params[:state]
 end
 
 
@@ -17,7 +27,7 @@ end
 
 private
   def playlist_attributes
-    params.require(:playlist).permit(:title, :user_notes, :selection_id, :user_id, :id)
+    params.require(:playlist).permit(:title, :user_notes, :selection_id, :user_id, :id, :state_name)
   end
 
 

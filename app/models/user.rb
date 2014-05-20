@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :playlists
-
+ has_secure_password
   # attr_accessible :email, :password_hash, :password_confirmation
 
   # attr_accessor :password_hash
@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password_hash, :on => :create
   validates_presence_of :email
   validates_uniqueness_of :email
+
 
   def self.authenticate(email, password_hash)
     user = find_by_email(email)

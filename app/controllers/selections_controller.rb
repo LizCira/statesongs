@@ -12,17 +12,22 @@ def create
   # binding.pry
   # Selection.create(selection_attributes)
   selection_attributes = params
+  user_id = selection_attributes["user_id"]
   blank = Selection.new
   blank.name = selection_attributes["name"]
   blank.band = selection_attributes["band"]
+  blank.playlist_id = selection_attributes["playlist_id"]
   blank.save!
-  redirect_to states_path
+  redirect_to "/users/#{user_id}"
   # Selection.create({
   #   name: selection_attributes[:name],
   #   band: selection_attributes[:band],
   #   sotify_id: selection_attributes[:spotify_id],
   #   playlist_id: selection_attributes[:splaylist_id]
   #   })
+end
+
+def delete
 end
 
 private

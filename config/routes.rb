@@ -18,6 +18,11 @@ Rails.application.routes.draw do
 
   post '/playlists' => "playlists#create"
 
+  get "/playlists/:id" => "playlists#show"
+
+  get "/playlists/:id/:state/edit" => "playlists#edit"
+
+  post "/playlists/:id/edit" => "playlists#edit"
 
   get "selections" => "selections#index"
   post "/selections" => "selections#create"

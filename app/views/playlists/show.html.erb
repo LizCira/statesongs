@@ -1,0 +1,13 @@
+<h2> HELLO </h2>
+
+<p> Editing <%= @playlist.title %>
+
+
+<ul>
+  <% @states = State.all %>
+<% @states.each do |state| %>
+  <li><%= link_to state.name, "/playlists/#{@playlist.id}/#{state.name}/edit" %></li>
+
+
+  <% end %>
+</ul>

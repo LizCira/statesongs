@@ -1,0 +1,25 @@
+<p>HELLO <%= @playlist.user.name %></p>
+
+<p> Editing <%= @playlist.title %>
+<p><%@playlist_id = @playlist.id %>
+<p> <% @user_id = @playlist.user_id %>
+
+
+<p>Top Tracks About <%= @statename %> </p>
+<% @statename = @statename.gsub(" ","%20") %>
+
+<%  api_query = JSON.parse(HTTParty.get("http://api.musixmatch.com/ws/1.1/track.search?apikey=#{MUSICXMATCH_API_KEY}&q_lyrics=#{ @statename}")) %>
+ <% songs = api_query["message"]["body"]["track_list"] %>
+<%songs.each do |tracks| %>
+
+  <li><%= tracks["track"]["track_name"] %>,
+  <% @name = tracks["track"]["track_name"] %>
+   <%= tracks["track"]["artist_name"] %>
+  <% @band = tracks["track"]["artist_name"] %>
+  <% @spotify = tracks["track"]["track_spotify_id"] %>
+<%= link_to "Add to playlist", {:controller => "selections", :action => "create", :name => @name, :band => @band, :playlist_id => @playlist_id, :user_id => @user_id}, {:method => :post } %>
+
+<p> <iframe src="https://embed.spotify.com/?uri=spotify:track:<%= @spotify %>"width="300" height="80" frameborder="0" allowtransparency="true"></iframe> </p>
+
+  <% end %>
+

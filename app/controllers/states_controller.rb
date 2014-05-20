@@ -13,6 +13,9 @@ def show
     @state = State.find(params[:id])
 end
 
+def save_state
+  @query_state = params
+end
 
 private
 
