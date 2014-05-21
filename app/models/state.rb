@@ -9,13 +9,11 @@ has_many :songs
   end
 
   def insta_state
-    query = self.name.gsub(" ","")
+    query = self.name
     api_query = HTTParty.get("https://api.instagram.com/v1/tags/#{query}/media/recent?client_id=#{INSTAGRAM_CLIENT_ID}")
     pic = api_query["data"].sample
     pic["images"]["standard_resolution"]["url"]
   end
 
 end
-
-
 

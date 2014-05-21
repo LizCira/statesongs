@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # get "/users/new" => "users#new"
 
-  get "/users/:id" => "users#show"
+  # get "/users/:id" => "users#show"
 
   get "/playlists/new" => "playlists#new"
 
