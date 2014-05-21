@@ -10,7 +10,7 @@ def create
 end
 
 def show
-    @state = State.find(params[:id])
+  @state = State.find(params[:id])
 end
 
 def save_state

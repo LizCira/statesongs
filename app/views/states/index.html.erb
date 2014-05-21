@@ -4,12 +4,17 @@
 <br>
 <p>See songs about your favorite state!</p>
 <br>
-<h3>To build a playlist, create a new account or sign in to your existing account.</h3>
+<h3>To start building a playlist, create a new account, or sign in to your existing account.</h3>
 <br>
-<p>Or just browse songs-by-state, below:</p>
+
+<p>Or continute to browse songs-by-state, below:</p>
 <br>
+
 <ul>
 <% @states.each do |state| %>
+
   <li><%= link_to state.name, "/states/#{state.id}" %></li>
   <% end %>
 </ul>
+
+

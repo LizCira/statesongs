@@ -1,14 +1,19 @@
-<p>HELLO <%= @playlist.user.name %></p>
 
-<p> Editing <%= @playlist.title %>
+<br>
+<br>
+<p>Welcome back, <%= @playlist.user.name %></p>
+<p> You are currently editing your playlist: <strong>"<%= @playlist.title %>"</strong></p>
 <p><%@playlist_id = @playlist.id %>
 <p> <% @user_id = @playlist.user_id %>
 
 
-<p>Top Tracks About <%= @statename %> </p>
+<div class="section group">
+<div class="col span_1_of_2">
+
+<h3>Top Tracks About <%= @statename %> </h3>
 <% @statename = @statename.gsub(" ","%20") %>
 
-<%  api_query = JSON.parse(HTTParty.get("http://api.musixmatch.com/ws/1.1/track.search?apikey=#{MUSICXMATCH_API_KEY}&q_lyrics=#{ @statename}")) %>
+<%  api_query = JSON.parse(HTTParty.get("http://api.musixmatch.com/ws/1.1/track.search?apikey=#{Rails.application.secrets.musicxmatch_api_key}&q_lyrics=#{ @statename}")) %>
  <% songs = api_query["message"]["body"]["track_list"] %>
 <%songs.each do |tracks| %>
 
@@ -22,11 +27,13 @@
 <p> <iframe src="https://embed.spotify.com/?uri=spotify:track:<%= @spotify %>"width="300" height="80" frameborder="0" allowtransparency="true"></iframe> </p>
 
   <% end %>
+</div>
 
-<h2>What's going on in <%= @statename %> right now???</h2>
-
+<div class="col span_1_of_2">
+<h3>Right now in <%= @statename %>: </h3>
+<ul>
 <% query = @statename.gsub("%20","").to_s %>
-<% api_query = HTTParty.get("https://api.instagram.com/v1/tags/#{query}/media/recent?client_id=#{INSTAGRAM_CLIENT_ID}") %>
+<% api_query = HTTParty.get("https://api.instagram.com/v1/tags/#{query}/media/recent?client_id=#{Rails.application.secrets.instagram_client_id}") %>
  <% pic1 = api_query["data"].sample%>
  <% pic2 = api_query["data"].sample%>
  <% pic3 = api_query["data"].sample%>
@@ -34,6 +41,9 @@
 <% @pic2 = pic2["images"]["standard_resolution"]["url"] %>
 <% @pic3 = pic3["images"]["standard_resolution"]["url"] %>
 
-<%= image_tag @pic1 %>
-<%= image_tag @pic2 %>
-<%= image_tag @pic3 %>
+<li class="image"><%= image_tag @pic1 %>
+<li class="image"><%= image_tag @pic2 %>
+<li class="image"><%= image_tag @pic3 %>
+</ul>
+</div>
+</div>

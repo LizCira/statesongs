@@ -22,14 +22,14 @@ Rails.application.routes.draw do
   get "selections" => "selections#index"
   post "/selections" => "selections#create"
   delete "/selections" => "selections#delete"
-# adding login stuff without knowing why
+  # adding login stuff without knowing why
 
-get "log_out" => "sessions#destroy", :as => "log_out"
-get "log_in" => "sessions#new", :as => "log_in"
-get "sign_up" => "users#new", :as => "sign_up"
-# root :to => "users#new"
-resources :users
-resources :sessions
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
+  # root :to => "users#new"
+  resources :users
+  resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

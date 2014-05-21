@@ -1,35 +1,42 @@
+<br>
+<br>
 <p> Hello, <%= @user.name %>! </p>
-<% @user_id = @user.id %>
 
-<p>Create a new playlist to begin choosing songs:</p>
+<div class="section group">
+  <div class="col span_1_of_2">
+    <h3>New List</h3>
 
-<%= form_for Playlist.new do |f| %>
-  <p>Playlist Title: <%= f.text_field :title %></p>
-  <p>Notes: <%= f.text_field :user_notes %></p>
- <%= f.hidden_field :user_id, :value => @user.id.to_i %>
+    <p>Create a new playlist to begin choosing songs:</p>
 
-  <p><%= f.submit "New list!" %></p>
+    <div class="list_create">
+      <%= form_for @playlist do |f| %>
+        <p>Playlist Title: <%= f.text_field :title %></p>
+        <p>Notes: <%= f.text_field :user_notes %></p>
+        <%= f.hidden_field :user_id, :value => @user.id %>
 
-  <% end %>
+        <p><%= f.submit "New list!" %></p>
+      <% end %>
+    </div>
+  </div>
 
+  <div class="col span_1_of_2">
+    <h3>Add Tracks</h3>
 
-<p>Select a list to begin adding tracks:</p>
+    <p>Select a list to begin adding tracks:</p>
 
-<ol>
-<% @user.playlists.each do |list| %>
-  <li><%= list.title %> -- <%= list.user_notes %>
-<%= link_to "Add Tracks", "/playlists/#{list.id}" %>,
-  <% @list_id = list.id %>
-<%= link_to "Delete whole list", {:controller => "playlists", :action => "delete", :list_id => @list_id, :user_id => @user_id}, {:method => :delete }  %>
-<ul>
-<% list.selections.each do |track| %>
+    <ol>
+      <% @user.playlists.each do |list| %>
+        <li><%= list.title %> -- <%= list.user_notes %>
+            <%= link_to "Add Tracks", "/playlists/#{list.id}" %>,
+            <%= link_to "Delete whole list", {:controller => "playlists", :action => "delete", :list_id => list.id, :user_id => @user.id}, {:method => :delete }  %>
+          <ul>
+            <% list.selections.each do |track| %>
+              <li> <%= track.name %>, <%= track.band %>
 
-  <li> <%= track.name %>, <%= track.band %>
-
-    <% @id = track.id %>
-   <%= link_to "Delete from playlist", {:controller => "selections", :action => "delete", :id => @id, :user_id => @user_id}, {:method => :delete }  %>
-    <% end %>
-
- </ul>
-  <% end %>
-</ol>
+              <%= link_to "Delete from playlist", {:controller => "selections", :action => "delete", :id => track.id, :user_id => @user.id}, {:method => :delete }  %>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ol>
+</div>

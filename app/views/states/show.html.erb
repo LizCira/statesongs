@@ -5,6 +5,10 @@
 
 <p>To begin creating a playlist, <%= link_to "Sign up here", sign_up_path %>
 
+<div class="section group">
+<div class="col span_1_of_2">
+
+<h3><%= @state.name %> TRACKLIST:</h3>
 <p> <% @state.state_playlist.each do |tracks| %>
   <li>"<%= tracks["track"]["track_name"] %>, "
     <%= tracks["track"]["artist_name"] %>,
@@ -13,9 +17,16 @@
     <p> <iframe src="https://embed.spotify.com/?uri=spotify:track:<%= tracks["track"]["track_spotify_id"] %>"width="300" height="80" frameborder="0" allowtransparency="true"></iframe> </p>
 
   <% end %>
-<br>
-<% @state.insta_state %>
-  <%= image_tag @state.insta_state %>
-  <%= image_tag @state.insta_state %>
- <%= image_tag @state.insta_state %>
+</div>
 
+<div class="col span_1_of_2">
+<h3>Right now in <%= @state.name %>:</h3>
+<p>Powered by Instagram!</p>
+<ul>
+<% @state.insta_state %>
+  <li class="image"><%= image_tag @state.insta_state %>
+  <li class="image"><%= image_tag @state.insta_state %>
+  <li class="image"><%= image_tag @state.insta_state %>
+</ul>
+</div>
+</div>
