@@ -45,6 +45,49 @@ li.image {
   line-height: 1.5px;
 }
 
+.sign_in_box{
+  max-width: 400px;
+  max-height: auto;
+  border-style: solid;
+  border-radius: 15px;
+  border-width: 6px;
+  border-color: #2C2416;
+  margin: auto;
+  background-color: #A8A8A8 ;
+  line-height: 1.5px;
+
+}
+
+.tracks{
+  max-width: 400px;
+  max-height: auto;
+  border-style: solid;
+  border-radius: 15px;
+  border-width: 6px;
+  border-color: #2C2416;
+  margin: auto;
+  background-color: #A8A8A8 ;
+  line-height: 1.5px;
+
+}
+
+li.playlist{
+  margin-bottom: 1em;
+  margin-top: 1em;
+  list-style: none;
+  text-align: justify;
+}
+
+li.list_names{
+    font-size: 19px;
+    text-align: justify;
+    margin-left: 1em;
+}
+
+a.list_names{
+  color: blue;
+}
+
 li.track_box{
 list-style: none;
 margin-bottom: 20em;
@@ -57,3 +100,4 @@ border-color: #2C2416;
 margin: auto;
 background-color: #A8A8A8 ;
 }
+
