@@ -21,10 +21,10 @@
   <% @name = tracks["track"]["track_name"] %>
    <%= tracks["track"]["artist_name"] %>
   <% @band = tracks["track"]["artist_name"] %>
-  <% @spotify = tracks["track"]["track_spotify_id"] %>
-<%= link_to "Add to playlist", {:controller => "selections", :action => "create", :name => @name, :band => @band, :playlist_id => @playlist_id, :user_id => @user_id}, {:method => :post } %>
+  <% @spotify_id = tracks["track"]["track_spotify_id"] %>
+<%= link_to "Add to playlist", {:controller => "selections", :action => "create", :name => @name, :band => @band, :playlist_id => @playlist_id, :user_id => @user_id, :spotify_id => @spotify_id}, {:method => :post } %>
 
-<p> <iframe src="https://embed.spotify.com/?uri=spotify:track:<%= @spotify %>"width="300" height="80" frameborder="0" allowtransparency="true"></iframe> </p>
+<p> <iframe src="https://embed.spotify.com/?uri=spotify:track:<%= @spotify_id %>"width="300" height="80" frameborder="0" allowtransparency="true"></iframe> </p>
 
   <% end %>
 </div>

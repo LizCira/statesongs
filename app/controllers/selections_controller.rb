@@ -16,6 +16,7 @@ def create
   blank = Selection.new
   blank.name = selection_attributes["name"]
   blank.band = selection_attributes["band"]
+  blank.spotify_id = selection_attributes["spotify_id"]
   blank.playlist_id = selection_attributes["playlist_id"]
   blank.save!
   redirect_to "/users/#{user_id}"

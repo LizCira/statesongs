@@ -35,7 +35,7 @@
 <br>
 <br>
 <br>
-          <%= list.user_notes %>:
+          "<%= list.user_notes %>"
           <br>
           <br>
           <br>
@@ -61,10 +61,41 @@
               <br>
               <br>
               <br>
+               <br>
               <br>
               <br>
               <br>
-              <%= link_to "Delete from playlist", {:controller => "selections", :action => "delete", :id => track.id, :user_id => @user.id}, {:method => :delete }  %>         <% end %>
+              <br>
+                <%= link_to "[Delete from playlist]", {:controller => "selections", :action => "delete", :id => track.id, :user_id => @user.id}, {:method => :delete }  %>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+             <br>
+              <br>
+              <br>
+              <br>
+              <p> <iframe src="https://embed.spotify.com/?uri=spotify:track:<%= track.spotify_id %>"width="300" height="80" frameborder="0" allowtransparency="true"></iframe> </p>
+
+
+              <br>
+                   <% end %>
+              <br>
+
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+
+
           </ul>
         <% end %>
       </ol>
