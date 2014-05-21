@@ -14,16 +14,7 @@ def new
 end
 
 def create
- # user_attributes = params[:user]
-  # @user = User.create({
-  #   name: params[:user][:name],
-  #   email: params[:user][:email],
-  #   password: params[:user][:password],
-  #   password_confirmation: params[:user][:password_confirmation],
-  #   id: params[:user][:id]
-  #   })
   @user = User.create(user_attributes)
-  # @user = User.create(user_attributes)
     if @user.save
     redirect_to "/users/#{@user.id}", :notice => "Signed up!"
   else

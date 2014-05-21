@@ -8,12 +8,6 @@ Rails.application.routes.draw do
 
   get "/states/:id" => "states#show", as: :state
 
-  # post "/users/" => "users#create"
-
-  # get "/users/new" => "users#new"
-
-  # get "/users/:id" => "users#show"
-
   get "/playlists/new" => "playlists#new"
 
   post '/playlists' => "playlists#create"
@@ -24,7 +18,6 @@ Rails.application.routes.draw do
 
   post "/playlists/:id/edit" => "playlists#edit"
   delete "/playlists" => "playlists#delete"
-
 
   get "selections" => "selections#index"
   post "/selections" => "selections#create"

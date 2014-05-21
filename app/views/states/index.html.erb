@@ -1,10 +1,13 @@
-<h2>American Music Project</h2>
-
+<br>
+<br>
+<h1>American Music Project</h1>
+<br>
 <p>See songs about your favorite state!</p>
-
-<p>Create an account to build a playlist: <%= link_to "Sign up here", sign_up_path %></p>
-
-
+<br>
+<h3>To build a playlist, create a new account or sign in to your existing account.</h3>
+<br>
+<p>Or just browse songs-by-state, below:</p>
+<br>
 <ul>
 <% @states.each do |state| %>
   <li><%= link_to state.name, "/states/#{state.id}" %></li>

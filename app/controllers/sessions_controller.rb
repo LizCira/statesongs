@@ -9,7 +9,7 @@ def create
 
   if user
     session[:user_id] = user.id
-    redirect_to root_url, :notice => "Logged in!"
+      redirect_to "/users/#{user.id}", :notice => "Logged in!"
   else
     flash.now.alert = "Invalid email or password"
     render "new"
@@ -20,11 +20,5 @@ def destroy
   session[:user_id] = nil
   redirect_to root_url, :notice => "Logged out!"
 end
-
-# private
-
-#   def session_attributes
-#     params.require(:session).permit(:password_hash, :user_id, :email, :id)
-#   end
 
 end

@@ -13,22 +13,23 @@
   <% end %>
 
 
-<p>Or pick an existing playlist to edit or add to.</p>
+<p>Select a list to begin adding tracks:</p>
 
-<ul>
+<ol>
 <% @user.playlists.each do |list| %>
   <li><%= list.title %> -- <%= list.user_notes %>
 <%= link_to "Add Tracks", "/playlists/#{list.id}" %>,
   <% @list_id = list.id %>
 <%= link_to "Delete whole list", {:controller => "playlists", :action => "delete", :list_id => @list_id, :user_id => @user_id}, {:method => :delete }  %>
-
+<ul>
 <% list.selections.each do |track| %>
 
-  <li> <%= track.name %>, <%= track.band %>.
+  <li> <%= track.name %>, <%= track.band %>
+
     <% @id = track.id %>
    <%= link_to "Delete from playlist", {:controller => "selections", :action => "delete", :id => @id, :user_id => @user_id}, {:method => :delete }  %>
     <% end %>
 
- </li>
+ </ul>
   <% end %>
-</ul>
+</ol>
