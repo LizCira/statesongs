@@ -1,20 +1,52 @@
 <br>
 <br>
-<h1>American Music Project</h1>
-<br>
-<p>See songs about your favorite state!</p>
-<br>
-<h3>To start building a playlist, create a new account, or sign in to your existing account.</h3>
-<br>
-
-<p>Or continute to browse songs-by-state, below:</p>
-<br>
-
+<h2>American Music Project</h2>
+<p>You are browsing as a guest. Create an account or sign-in to build a playlist.</p>
+<div class="state_list_box" >
+<div class="section group">
+<div class="col span_1_of_5">
 <ul>
-<% @states.each do |state| %>
-
-  <li><%= link_to state.name, "/states/#{state.id}" %></li>
-  <% end %>
+<% x = 0 %>
+<% while x <10 %>
+  <li> <%= link_to @states[x].name, "/states/#{@states[x].id}" %></li>
+  <% x+=1 %>
+<% end %>
 </ul>
+</div>
 
+<div class="col span_1_of_5">
+<% while x >= 10 && x <20 %>
+  <li> <%= link_to @states[x].name, "/states/#{@states[x].id}" %></li>
+  <% x+=1 %>
+<% end %>
+</ul>
+</div>
 
+<div class="col span_1_of_5">
+<% while x >= 20 && x <30 %>
+  <li> <%= link_to @states[x].name, "/states/#{@states[x].id}" %></li>
+  <% x+=1 %>
+<% end %>
+</ul>
+</div>
+
+<div class="col span_1_of_5">
+<% while x >= 30 && x <40 %>
+  <li> <%= link_to @states[x].name, "/states/#{@states[x].id}" %></li>
+  <% x+=1 %>
+<% end %>
+</ul>
+</div>
+
+<div class="col span_1_of_5">
+<ul>
+<% while x >= 40 && x <50 %>
+ <li><%= link_to @states[x].name, "/states/#{@states[x].id}" %></li>
+  <% x+=1 %>
+<% end %>
+</ul>
+</div>
+</div>
+</div>
+<br>
+<br>
