@@ -9,7 +9,7 @@ class State < ActiveRecord::Base
   end
 
   def insta_state
-    query = self.name
+    query = self.name.gsub(" ","")
     api_query = HTTParty.get("https://api.instagram.com/v1/tags/#{query}/media/recent?client_id=#{Rails.application.secrets.instagram_client_id}")
     pic = api_query["data"].sample
     pic["images"]["standard_resolution"]["url"]
