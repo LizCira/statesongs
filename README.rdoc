@@ -9,7 +9,9 @@
 </ul>
 
 <strong> About Statesongs:</strong> 
-<p>This is a studen project app that allows users to search for songs about all of the 50 states, and create and save playlists. The songs will all feature the state name somwhere in their lyrics.</p> 
+<p>This is a studen project app that allows users to browse songs about all of the 50 states categorized by state, and create and save playlists. The songs will all feature the state name somwhere in their lyrics.</p> 
+
+See it live on Heroku: <a href="http://fast-sands-1667.herokuapp.com/">http://fast-sands-1667.herokuapp.com/</a>
 
 <strong>APIs used:</strong>
 <p>It uses the MusicXmatch lyrics API (free developer version.) It uses the instagram API to display pictures tagged by state. It uses Spotify to display a song player.</p>
@@ -20,6 +22,11 @@
 <li>It uses HTTParty for API interface.
 </ul>
 
+<strong>Data model</strong>
+<p>This project uses four tables in ActiveRecord: States, Users, Selections, and Playlists.</p>
+
+![image](http://s21.postimg.org/534l6qviv/statesongs_erd.jpg)
+
 <strong>Using Statesongs!</strong>
 <p>Without a registered account, users can browse songs by state. After signing up for an account, name a playlist. Click on the new playlist name to begin adding songs. Clicking on a state name from the main state screen will display songs with that state name in the lyrics. Select "add song" and the song will be added to the bottom of your currently selected playlist. Clicking the playlist title again will allow you to continue adding songs to that playlist. Users can have as many playlists as they'd like.</p>
 
@@ -27,7 +34,7 @@
 <ul>
 <li>Add WeatherUnderground API to state display pages to show current weather in state capital.
 <li>New feature to search for songs by country name, based on wikipedia list of countries.
-<li>Would like to find or create a more comprehensive database of lyrics to search through for queries, as returns are currently limited to ten only.
+<li>Would like to find or create a more comprehensive database of lyrics to search through for queries, as returns are currently limited to ten only and limited to selected MusicXMatch licensed partners.
 </ul>
 
 <strong>More Info on Project Specifications:</strong> <a href="https://github.com/ga-students/WDI_NYC_Apr14_String/blob/66153e3b065b53fcd85e425ab725f4e5fc29a0b3/w05/README.md">https://github.com/ga-students/WDI_NYC_Apr14_String/blob/66153e3b065b53fcd85e425ab725f4e5fc29a0b3/w05/README.md</a>

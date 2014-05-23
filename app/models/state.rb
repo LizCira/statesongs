@@ -1,5 +1,5 @@
 class State < ActiveRecord::Base
-  has_many :songs
+  has_many :selections
 
   def state_playlist
     query = self.name.gsub(" ","%20")

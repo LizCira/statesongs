@@ -1,4 +1,4 @@
-n# encoding: UTF-8
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@ n# encoding: UTF-8
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519214144) do
+ActiveRecord::Schema.define(version: 20140523030500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,16 +30,10 @@ ActiveRecord::Schema.define(version: 20140519214144) do
     t.string "playlist_id"
   end
 
-  create_table "songs", force: true do |t|
-    t.string  "track"
-    t.string  "band"
-    t.string  "spotify"
-    t.integer "state_id"
-  end
-
   create_table "states", force: true do |t|
     t.string "name"
     t.string "instagram"
+    t.string "capital"
   end
 
   create_table "users", force: true do |t|

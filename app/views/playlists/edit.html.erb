@@ -11,13 +11,13 @@
 <div class="col span_1_of_2">
 
 <h3>Top Tracks About <%= @statename %> </h3>
-<% @statename = @statename.gsub(" ","%20") %>
+<% @statename_clean = @statename.gsub(" ","%20") %>
 
-<%  api_query = JSON.parse(HTTParty.get("http://api.musixmatch.com/ws/1.1/track.search?apikey=#{Rails.application.secrets.musicxmatch_api_key}&q_lyrics=#{ @statename}")) %>
+<%  api_query = JSON.parse(HTTParty.get("http://api.musixmatch.com/ws/1.1/track.search?apikey=#{Rails.application.secrets.musicxmatch_api_key}&q_lyrics=#{ @statename_clean}")) %>
  <% songs = api_query["message"]["body"]["track_list"] %>
 <%songs.each do |tracks| %>
 
-  <li><%= tracks["track"]["track_name"] %>,
+  <li class="image"><%= tracks["track"]["track_name"] %>
   <% @name = tracks["track"]["track_name"] %>
    <%= tracks["track"]["artist_name"] %>
   <% @band = tracks["track"]["artist_name"] %>
@@ -32,7 +32,7 @@
 <div class="col span_1_of_2">
 <h3>Right now in <%= @statename %>: </h3>
 <ul>
-<% query = @statename.gsub("%20","").to_s %>
+<% query = @statename.gsub(" ","").to_s %>
 <% api_query = HTTParty.get("https://api.instagram.com/v1/tags/#{query}/media/recent?client_id=#{Rails.application.secrets.instagram_client_id}") %>
  <% pic1 = api_query["data"].sample%>
  <% pic2 = api_query["data"].sample%>
