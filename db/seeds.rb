@@ -1,6 +1,7 @@
 State.delete_all
 User.delete_all
 Playlist.delete_all
+Selection.delete_all
 
 state_names = ["Alabama",
 "Alaska",
@@ -106,11 +107,83 @@ state_capitals = ["Montgomery",
 "Cheyenne",
 ]
 
+state_code = [
+"AL",
+"AK",
+"AS",
+"AZ",
+"AR",
+"CA",
+"CO",
+"CT",
+"DE",
+"DC",
+"FM",
+"FL",
+"GA",
+"GU",
+"HI",
+"ID",
+"IL",
+"IN",
+"IA",
+"KS",
+"KY",
+"LA",
+"ME",
+"MH",
+"MD",
+"MA",
+"MI",
+"MN",
+"MS",
+"MO",
+"MT",
+"NE",
+"NV",
+"NH",
+"NJ",
+"NM",
+"NY",
+"NC",
+"ND",
+"MP",
+"OH",
+"OK",
+"OR",
+"PW",
+"PA",
+"PR",
+"RI",
+"SC",
+"SD",
+"TN",
+"TX",
+"UT",
+"VT",
+"VI",
+"VA",
+"WA",
+"WV",
+"WI",
+"WY"]
+
 state_names.each do |state_name|
-  State.create({name: state_name })
+ State.create({name: state_name})
 end
 
-# 5.times do
+@states = State.all
+x = 0
+while x < 50
+  @states[x].update_attributes(capital: state_capitals[x])
+  x+=1
+end
+
+x = 0
+while x < 50
+  @states[x].update_attributes(state_code: state_code[x])
+  x+=1
+end
 
 #   new_user = User.create({
 #     name: Faker::Name.name,
