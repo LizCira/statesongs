@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527214506) do
+ActiveRecord::Schema.define(version: 20140527222443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20140527214506) do
 
   create_table "states", force: true do |t|
     t.string "name"
-    t.string "instagram"
     t.string "capital"
     t.string "state_code"
   end
