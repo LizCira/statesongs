@@ -19,10 +19,17 @@ class State < ActiveRecord::Base
     state_code = self.state_code
     city = self.capital
     weather = HTTParty.get("http://api.wunderground.com/api/#{Rails.application.secrets.wunderground_api_key}/conditions/q/#{state_code}/#{city}.json")
-    binding.pry
-    @current_weather = weather["current_observation"]["weather"]
-    @current_temp = weather["current_observation"]["temperature_string"]
-    @time = weather["current_observation"]["observation_time"]
+    current_weather = weather["current_observation"]["weather"]
+    current_temp = weather["current_observation"]["temperature_string"]
+    time = weather["current_observation"]["observation_time"]
+    @show = current_weather.to_s + " and " + current_temp.to_s
+    # @weather = []
+    # @weather << current_weather = weather["current_observation"]["weather"]
+    # @weather << current_temp = weather["current_observation"]["temperature_string"]
+    # @weather << time = weather["current_observation"]["observation_time"]
+    # @weather.each do |x|
+    #   puts x
+    # end
   end
 
 end
