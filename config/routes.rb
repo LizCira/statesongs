@@ -3,19 +3,13 @@ Rails.application.routes.draw do
   root to: "states#index"
 
   get "/states" => "states#index"
-
   post "/states" => "states#create"
-
   get "/states/:id" => "states#show", as: :state
 
   get "/playlists/new" => "playlists#new"
-
   post '/playlists' => "playlists#create"
-
   get "/playlists/:id" => "playlists#show"
-
   get "/playlists/:id/:state/edit" => "playlists#edit"
-
   post "/playlists/:id/edit" => "playlists#edit"
   delete "/playlists" => "playlists#delete"
 

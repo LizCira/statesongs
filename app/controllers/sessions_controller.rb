@@ -6,18 +6,14 @@ end
  def create
     # find if any user has that email
     user = User.find_by(email: params[:email])
-
     # if that user exists and it has a password that
     # was sent
     if user && ( user.authenticate(params[:password]) )
-
       # save the user_id in the session hash
       session[:user_id] = user.id
-
       # and redirect to that user's home page
       redirect_to( user_path(user) )
     else
-
       # the email/password is wrong!
       @message = "This email and password combination does not exist. Please try again or sign in."
       render(:new)

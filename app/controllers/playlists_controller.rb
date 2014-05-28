@@ -1,12 +1,5 @@
 class PlaylistsController < ApplicationController
 
-# def current_edit_playlist(choice)
-#     @playlist_editing = self.playlist_id
-# end
-
-# def show_states
-#   @states = State.all
-# end
 def show
   @playlist = Playlist.find(params[:id])
 end
@@ -14,6 +7,7 @@ end
 def edit
   @playlist = Playlist.find(params[:id])
   @statename = params[:state]
+   # @statename = State.find(params[:state])
 end
 
 
