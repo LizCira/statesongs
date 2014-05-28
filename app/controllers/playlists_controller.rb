@@ -7,7 +7,7 @@ end
 def edit
   @playlist = Playlist.find(params[:id])
   @statename = params[:state]
-   # @statename = State.find(params[:state])
+  @state = State.find_by_name(@statename)
 end
 
 

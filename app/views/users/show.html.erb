@@ -26,32 +26,32 @@
 
     <p>Select a list to begin adding tracks:</p>
     <ol>
-      <% @user.playlists.each do |list| %>
+      <% @user.playlists.reverse.each do |list| %>
         <li div class="list_names"><%= link_to list.title, "/playlists/#{list.id}", {:style=>'blue', :class => "css_class"} %>  <%= link_to "[Delete List]", {:controller => "playlists", :action => "delete", :list_id => list.id, :user_id => @user.id}, {:method => :delete }  %>
           <br>
           <br>
           <br>
-<br>
-<br>
-<br>
-<br>
+          <br>
+          <br>
+          <br>
+          <br>
           "<%= list.user_notes %>"
           <br>
           <br>
           <br>
           <br>
           <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
            </li>
           <ul>
-            <% list.selections.each do |track| %>
+            <% list.selections.reverse.each do |track| %>
              <li div class="playlist"> <%= track.name %>, <%= track.band %>
               <br>
               <br>

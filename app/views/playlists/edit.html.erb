@@ -11,11 +11,7 @@
 <div class="col span_1_of_2">
 
 <h3>Top Tracks About <%= @statename %> </h3>
-<% @statename_clean = @statename.gsub(" ","%20") %>
-
-<%  api_query = JSON.parse(HTTParty.get("http://api.musixmatch.com/ws/1.1/track.search?apikey=#{Rails.application.secrets.musicxmatch_api_key}&q_lyrics=#{ @statename_clean}")) %>
- <% songs = api_query["message"]["body"]["track_list"] %>
-<%songs.each do |tracks| %>
+<p> <% @state.state_playlist.each do |tracks| %>
 
   <li class="image"><%= tracks["track"]["track_name"] %>
   <% @name = tracks["track"]["track_name"] %>
@@ -31,19 +27,13 @@
 
 <div class="col span_1_of_2">
 <h3>Right now in <%= @statename %>: </h3>
-<ul>
-<% query = @statename.gsub(" ","").to_s %>
-<% api_query = HTTParty.get("https://api.instagram.com/v1/tags/#{query}/media/recent?client_id=#{Rails.application.secrets.instagram_client_id}") %>
- <% pic1 = api_query["data"].sample%>
- <% pic2 = api_query["data"].sample%>
- <% pic3 = api_query["data"].sample%>
-<% @pic1 = pic1["images"]["standard_resolution"]["url"] %>
-<% @pic2 = pic2["images"]["standard_resolution"]["url"] %>
-<% @pic3 = pic3["images"]["standard_resolution"]["url"] %>
+<p> <%= @state.state_weather %> </p>
 
-<li class="image"><%= image_tag @pic1 %>
-<li class="image"><%= image_tag @pic2 %>
-<li class="image"><%= image_tag @pic3 %>
+<ul>
+
+  <li class="image"><%= image_tag @state.insta_state %>
+  <li class="image"><%= image_tag @state.insta_state %>
+  <li class="image"><%= image_tag @state.insta_state %>
 </ul>
 </div>
 </div>
