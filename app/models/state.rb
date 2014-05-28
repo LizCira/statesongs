@@ -21,7 +21,7 @@ class State < ActiveRecord::Base
     weather = HTTParty.get("http://api.wunderground.com/api/#{Rails.application.secrets.wunderground_api_key}/conditions/q/#{state_code}/#{city}.json")
     current_weather = weather["current_observation"]["weather"]
     current_temp = weather["current_observation"]["temperature_string"]
-    @show = current_weather.to_s + " and " + current_temp.to_s
+    @show = "In #{self.capital}, it's #{current_weather} and #{current_temp} degrees."
   end
 
 end
