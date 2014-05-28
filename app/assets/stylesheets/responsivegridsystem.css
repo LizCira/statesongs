@@ -239,7 +239,7 @@ color : #cc1122;
 -moz-transition: all 0.3s ease;
 -o-transition: all 0.3s ease;
 transition: all 0.3s ease;
-text-decoration: none;
+/*text-decoration: bold;*/
 }
 
 a:visited {
