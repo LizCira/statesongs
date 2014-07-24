@@ -4,8 +4,8 @@
 
 Written in:
 
-*Rails 4.1.0
-*Ruby 1.9.3
+	*Rails 4.1.0
+	*Ruby 1.9.3
 
 
 ====About Statesongs:
@@ -14,19 +14,19 @@ This is a studen project app that allows users to browse songs about all of the 
 See it live on Heroku: http://fast-sands-1667.herokuapp.com
 
 ====APIs used:
-It uses the MusicXmatch lyrics API (free developer version.) It uses the instagram API to display pictures tagged by state. It uses Spotify to display a song player.
+It uses the MusicXmatch lyrics API (free developer version.) It uses the instagram API to display pictures tagged by state. It uses Spotify to display a song player. It uses Weather Underground to display weather by state capital. 
 
 MusicXmatch developer version is limited to 2k queries/ day.
 
 ====Gem dependencies:
 
-*It uses BCrypt for password encryption. 
-*It uses HTTParty for API interface.
+	*It uses BCrypt for password encryption. 
+	*It uses HTTParty for API interface.
 
 ====Data model
 This project uses four tables in ActiveRecord: States, Users, Selections, and Playlists.
 
-![image](http://s21.postimg.org/534l6qviv/statesongs_erd.jpg)
+http://s21.postimg.org/534l6qviv/statesongs_erd.jpg
 
 ====Styling
 
@@ -38,9 +38,8 @@ Without a registered account, users can browse songs by state. After signing up 
 
 ====Future plans for world domination
 
-*Add WeatherUnderground API to state display pages to show current weather in state capital.
-*New feature to search for songs by country name, based on wikipedia list of countries.
-*Would like to find or create a more comprehensive database of lyrics to search through for queries, as returns are currently limited to ten only and limited to selected MusicXMatch licensed partners.
+	*New feature to search for songs by country name, based on wikipedia list of countries.
+	*Would like to find or create a more comprehensive database of lyrics to search through for queries, as returns are currently limited to ten only and limited to selected MusicXMatch licensed partners.
 
 
 ====More Info on Project Specifications:
